@@ -1,4 +1,4 @@
-package com.example.madrass_back.modeles;
+package com.ynov.webfullstack.back.Models;
 
 import jakarta.persistence.*;
 
@@ -8,7 +8,7 @@ public class Unite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name="nom")
     private String nom;
@@ -20,6 +20,8 @@ public class Unite {
         this.nom = nom;
         this.valeur = valeur;
     }
+
+    public Unite() {}
 
     public String getNom() {
         return nom;

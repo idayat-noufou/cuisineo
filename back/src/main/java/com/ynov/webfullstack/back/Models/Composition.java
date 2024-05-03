@@ -1,4 +1,4 @@
-package com.example.madrass_back.modeles;
+package com.ynov.webfullstack.back.Models;
 
 import jakarta.persistence.*;
 
@@ -8,7 +8,7 @@ public class Composition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     @Column(name="ingredient_id")
     private int ingredient_id;
@@ -20,6 +20,8 @@ public class Composition {
         this.ingredient_id = ingredient_id;
         this.quantite = quantite;
     }
+
+    public Composition() {}
 
     public int getIngredient_id() {
         return ingredient_id;

@@ -12,7 +12,7 @@ services:
     volumes:
       - .:/app
     depends_on:
-      - cuisineo_mysql
+      - mysql
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://172.29.0.2:3306/cuisineo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
@@ -20,19 +20,28 @@ services:
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
       SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL8Dialect
 
-  cuisineo_mysql:
+  mysql:
     image: mysql:8.3
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: sa
       MYSQL_DATABASE: cuisineo
-      MYSQL_USER: idayat
-      MYSQL_PASSWORD: sa
-#      LC_MESSAGES: fr_FR.UTF-8
+      MYSQL_USER: someone
+      MYSQL_PASSWORD: na
     ports:
       - "3306:3306"
     volumes:
-      - ./data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8081:80" # Choisir le port de votre choix pour l'accès à phpMyAdmin
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: sa # Assurez-vous que c'est le même mot de passe que celui défini pour votre conteneur MySQL
+    depends_on:
+      - mysql
 
 volumes:
   mysql_data:

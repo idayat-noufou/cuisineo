@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cuisineo_front:
+    image: cuisineo_front
+    container_name: cuisineo_front
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app

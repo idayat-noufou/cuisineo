@@ -1,20 +1,31 @@
 version: '3.8'
 
 services:
+  cuisineo_front:
+    image: cuisineo_front
+    container_name: cuisineo_front
+    build:
+      context: ./front  # Assurez-vous que le Dockerfile du front-end est dans le répertoire front-end
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./front:/app
+
   cuisineo_back:
     image: cuisineo_back
     container_name: cuisineo_back
     build:
-      context: .
+      context: ./back  # Assurez-vous que le Dockerfile du back-end est dans le répertoire back-end
       dockerfile: Dockerfile
     ports:
       - "3080:3080"
     volumes:
-      - .:/app
+      - ./back:/app
     depends_on:
       - mysql
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://172.29.0.2:3306/cuisineo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/cuisineo?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: sa
       SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
@@ -32,14 +43,15 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: always
     ports:
-      - "8081:80" # Choisir le port de votre choix pour l'accès à phpMyAdmin
+      - "8081:80"
     environment:
       PMA_HOST: mysql
-      MYSQL_ROOT_PASSWORD: sa # Assurez-vous que c'est le même mot de passe que celui défini pour votre conteneur MySQL
+      MYSQL_ROOT_PASSWORD: sa
     depends_on:
       - mysql
 

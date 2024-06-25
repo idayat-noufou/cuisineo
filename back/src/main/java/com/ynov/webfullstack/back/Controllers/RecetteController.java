@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
@@ -23,6 +24,11 @@ public class RecetteController {
     @GetMapping("/recettes")
     public Iterable<Recette> getRecettes() {
         return recetteService.getRecettes();
+    }
+
+    @GetMapping("/recettes/{keyword}")
+    public Iterable<Recette> getRecettesByKeyword( @RequestBody String keyword) {
+        return recetteService.getRecettesByKeyword(keyword);
     }
 
     @PostMapping("/recette/{recette}")

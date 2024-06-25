@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RecetteRepository extends CrudRepository<Recette, Long> {
 
+    Iterable<Recette> findByTitreContaining(String keyword);
 }

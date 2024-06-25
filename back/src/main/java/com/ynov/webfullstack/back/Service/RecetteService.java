@@ -32,4 +32,7 @@ public class RecetteService {
         return savedRecette;
     }
 
+    public Iterable<Recette> getRecettesByKeyword(String keyword) {
+        return recetteRepository.findByTitreContaining(keyword);
+    }
 }

@@ -1,7 +1,7 @@
 package com.ynov.webfullstack.back.Service;
 
 import com.ynov.webfullstack.back.Models.Unite;
-import com.ynov.webfullstack.back.Repositories.UniteRepository;
+import com.ynov.webfullstack.back.repositories.UniteRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -11,8 +11,8 @@ import java.util.UUID;
 public class Utilisateur implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="prenom")
     private String prenom;
@@ -28,6 +28,31 @@ public class Utilisateur implements UserDetails {
 
     @Column(name="role")
     private String role;
+
+
+
+    @OneToMany(mappedBy = "utilisateurRecettes")
+    private List<Recette> recettes;
+
+
+
+    @ManyToMany(mappedBy = "utilisateursfavoris")
+    private List<Recette> recettesfavorites;
+
+    public Utilisateur() {
+    }
+
+    public List<Recette> getRecettesfavorites() {
+        return recettesfavorites;
+    }
+
+    public void setRecettesfavorites(List<Recette> recettesfavorites) {
+        this.recettesfavorites = recettesfavorites;
+    }
+
+    public void addRecette(Recette recette) {
+        this.recettesfavorites.add(recette);
+    }
 
     public String getEmail() {
         return email;
@@ -53,11 +78,11 @@ public class Utilisateur implements UserDetails {
         this.role = role;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
@@ -77,8 +102,8 @@ public class Utilisateur implements UserDetails {
         this.prenom = prenom;
     }
 
-    @Override
-    public String toString() {
+
+    @Override public String toString() {
         return "User{" +
                 "id=" + id +
                 ", prenom='" + prenom + '\'' +

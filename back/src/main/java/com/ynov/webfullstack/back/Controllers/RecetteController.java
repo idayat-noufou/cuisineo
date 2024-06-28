@@ -4,10 +4,10 @@ import com.ynov.webfullstack.back.Models.Recette;
 import com.ynov.webfullstack.back.Service.RecetteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class RecetteController {
@@ -16,22 +16,25 @@ public class RecetteController {
     private RecetteService recetteService;
 
     @GetMapping("/recettes/{id}")
-    public Optional<Recette> getRecette(long id){
+    public Optional<Recette> getRecette(@PathVariable Long id){
         return recetteService.getRecette(id);
     }
 
-    @GetMapping("/recettes")
+    @GetMapping("/recettes/")
     public Iterable<Recette> getRecettes() {
         return recetteService.getRecettes();
     }
 
-    @PostMapping("/recette/{recette}")
-    public void saveRecette(Recette recette){
-        recetteService.saveRecette(recette);
+    @PostMapping("/recettes")
+    public Recette saveRecette(@RequestBody Recette recette){
+
+        return recetteService.saveRecette(recette);
     }
 
-    @PostMapping("/recette/{id}")
-    public void deleteRecette(long id){
+
+
+    @DeleteMapping("/recette/{id}")
+    public void deleteRecette(Long id){
         recetteService.deleteRecette(id);
     }
 }

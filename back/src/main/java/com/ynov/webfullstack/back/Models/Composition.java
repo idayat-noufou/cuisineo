@@ -8,7 +8,7 @@ public class Composition {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name="ingredient_id")
     private int ingredient_id;

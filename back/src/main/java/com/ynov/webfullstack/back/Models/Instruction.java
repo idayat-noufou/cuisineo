@@ -8,7 +8,7 @@ public class Instruction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name="instr_prec")
     private int instr_prec;

@@ -2,7 +2,7 @@ package com.ynov.webfullstack.back.Service;
 
 
 import com.ynov.webfullstack.back.Models.Composition;
-import com.ynov.webfullstack.back.Repositories.CompositionRepository;
+import com.ynov.webfullstack.back.repositories.CompositionRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

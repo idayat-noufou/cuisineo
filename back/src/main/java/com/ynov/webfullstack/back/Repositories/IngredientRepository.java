@@ -1,10 +1,11 @@
-package com.ynov.webfullstack.back.Repositories;
+package com.ynov.webfullstack.back.repositories;
 
 import com.ynov.webfullstack.back.Models.Ingredient;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IngredientRepository extends CrudRepository<Ingredient, Long> {
+public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
 
 }

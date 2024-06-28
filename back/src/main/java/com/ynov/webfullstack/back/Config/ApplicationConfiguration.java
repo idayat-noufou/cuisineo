@@ -1,7 +1,7 @@
 package com.ynov.webfullstack.back.Config;
 
 
-import com.ynov.webfullstack.back.Repositories.UtilisateurRepository;
+import com.ynov.webfullstack.back.repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -2,16 +2,39 @@ package com.ynov.webfullstack.back.Models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+import java.util.UUID;
+
 @Entity
 @Table(name = "recette")
 public class Recette {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name="titre")
     private String titre;
+
+    public int getNb_personnes() {
+        return nb_personnes;
+    }
+
+    public int getTemps() {
+        return temps;
+    }
+
+    public int getInstruction() {
+        return instruction;
+    }
+
+    public Utilisateur getUtilisateurRecettes() {
+        return utilisateurRecettes;
+    }
+
+    public void setUtilisateurRecettes(Utilisateur utilisateurRecettes) {
+        this.utilisateurRecettes = utilisateurRecettes;
+    }
 
     @Column(name="nb_personnes")
     private int nb_personnes;
@@ -22,15 +45,29 @@ public class Recette {
     @Column(name="instruction")
     private int instruction;
 
-    @Column(name="owner")
-    private int owner;
+    @ManyToOne
+    @JoinColumn(name="utilisateur_id")
+    private Utilisateur utilisateurRecettes;
 
-    public Recette(int nb_personnes, String titre, int temps, int instruction, int owner) {
+
+
+
+
+    @ManyToMany
+    private List<Utilisateur> utilisateursfavoris;
+    public List<Utilisateur> getUtilisateursfavoris() {
+        return utilisateursfavoris;
+    }
+
+    public void setUtilisateursfavoris(List<Utilisateur> utilisateursfavoris) {
+        this.utilisateursfavoris = utilisateursfavoris;
+    }
+    public Recette(int nb_personnes, String titre, int temps, int instruction) {
         this.nb_personnes = nb_personnes;
         this.titre = titre;
         this.temps = temps;
         this.instruction = instruction;
-        this.owner = owner;
+
     }
 
     public Recette() {}
@@ -39,9 +76,7 @@ public class Recette {
         return titre;
     }
 
-    public int getOwner() {
-        return owner;
-    }
+
 
     public void setTitre(String titre) {
         this.titre = titre;
@@ -59,7 +94,5 @@ public class Recette {
         this.instruction = instruction;
     }
 
-    public void setOwner(int owner) {
-        this.owner = owner;
-    }
+
 }

@@ -5,6 +5,9 @@ import com.ynov.webfullstack.back.Service.RecetteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -29,7 +32,13 @@ public class RecetteController {
     public Recette saveRecette(@RequestBody Recette recette){
 
         return recetteService.saveRecette(recette);
+
+    @GetMapping("/recettes/{keyword}")
+    public Iterable<Recette> getRecettesByKeyword( @RequestBody String keyword) {
+        return recetteService.getRecettesByKeyword(keyword);
     }
+
+
 
 
 

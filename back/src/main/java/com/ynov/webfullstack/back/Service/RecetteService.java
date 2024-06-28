@@ -36,6 +36,7 @@ public class RecetteService {
         return recetteRepository.save(new Recette(recette.getNb_personnes(), recette.getTitre(), recette.getTemps(), recette.getInstruction()));
     }
 
-
-
+    public Iterable<Recette> getRecettesByKeyword(String keyword) {
+        return recetteRepository.findByTitreContaining(keyword);
+    }
 }

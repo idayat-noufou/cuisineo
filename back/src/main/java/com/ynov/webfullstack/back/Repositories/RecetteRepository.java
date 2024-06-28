@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface RecetteRepository extends JpaRepository<Recette, Long> {
     List<Recette> findByTitre(String titre);
+    Iterable<Recette> findByTitreContaining(String keyword);
 }

@@ -23,7 +23,8 @@ public class UtilisateurService {
     private RecetteRepository recetteRepository;
 
 
-    public Utilisateur addRecetteToUser(Long id, Long recetteId) {
+    // fonction pour ajouter un favori
+    public Utilisateur addFavori(Long id, Long recetteId) {
 
         Recette recette = recetteRepository.findById(recetteId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,

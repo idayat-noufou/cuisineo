@@ -24,9 +24,9 @@ public class UtilisateurController {
 
     private UtilisateurRepository utilisateurRepository;
 
-    @PutMapping("/utilisateurs/{id}/addRecette")
-    public Utilisateur addRecetteToUser(@PathVariable Long id, @RequestBody Long recetteId) {
-        return utilisateurService.addRecetteToUser(id, recetteId);
+    @PutMapping("/utilisateurs/{id}/addFavori")
+    public Utilisateur addFavori(@PathVariable Long id, @RequestBody Long recetteId) {
+        return utilisateurService.addFavori(id, recetteId);
     }
 
     @GetMapping("/utilisateurs")

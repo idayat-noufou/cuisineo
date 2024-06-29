@@ -29,17 +29,15 @@ public class RecetteController {
     }
 
     @PostMapping("/recettes")
-    public Recette saveRecette(@RequestBody Recette recette){
+    public Recette saveRecette(@RequestBody Recette recette) {
 
         return recetteService.saveRecette(recette);
+    }
 
     @GetMapping("/recettes/{keyword}")
     public Iterable<Recette> getRecettesByKeyword( @RequestBody String keyword) {
         return recetteService.getRecettesByKeyword(keyword);
     }
-
-
-
 
 
     @DeleteMapping("/recette/{id}")

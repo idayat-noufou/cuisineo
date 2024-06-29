@@ -22,17 +22,9 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
-    private UtilisateurRepository utilisateurRepository;
-
     @PutMapping("/utilisateurs/{id}/addFavori")
     public Utilisateur addFavori(@PathVariable Long id, @RequestBody Long recetteId) {
         return utilisateurService.addFavori(id, recetteId);
     }
 
-    @GetMapping("/utilisateurs")
-    public List<Utilisateur> getUtilisateurs() {
-
-            return utilisateurRepository.findAll();
-
-    }
 }

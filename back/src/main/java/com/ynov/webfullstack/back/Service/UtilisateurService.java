@@ -36,8 +36,5 @@ public class UtilisateurService {
         return utilisateurRepository.save(utilisateur);
     }
 
-    public List<Utilisateur> getUtilisateurs() {
-        return utilisateurRepository.findAll();
-    }
 
 }

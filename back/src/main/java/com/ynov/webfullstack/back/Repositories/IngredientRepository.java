@@ -1,4 +1,4 @@
-package com.ynov.webfullstack.back.repositories;
+package com.ynov.webfullstack.back.Repositories;
 
 import com.ynov.webfullstack.back.Models.Ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;

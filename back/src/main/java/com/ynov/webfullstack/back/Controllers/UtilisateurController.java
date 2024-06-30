@@ -4,7 +4,7 @@ import com.ynov.webfullstack.back.Models.Recette;
 import com.ynov.webfullstack.back.Models.Utilisateur;
 import com.ynov.webfullstack.back.Service.RecetteService;
 import com.ynov.webfullstack.back.Service.UtilisateurService;
-import com.ynov.webfullstack.back.repositories.UtilisateurRepository;
+import com.ynov.webfullstack.back.Repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

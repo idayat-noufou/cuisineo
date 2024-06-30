@@ -1,4 +1,4 @@
-package com.ynov.webfullstack.back.Config;
+package com.ynov.webfullstack.back.Config.Filters;
 
 import com.ynov.webfullstack.back.Service.JwtService;
 import jakarta.servlet.FilterChain;
@@ -21,7 +21,6 @@ import java.io.IOException;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     private final HandlerExceptionResolver handlerExceptionResolver;
 
     private final JwtService jwtService;
@@ -36,8 +35,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         this.userDetailsService = userDetailsService;
         this.handlerExceptionResolver = handlerExceptionResolver;
     }
-
-
 
     @Override
     protected void doFilterInternal(

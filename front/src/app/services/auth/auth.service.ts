@@ -71,6 +71,9 @@ export class AuthService {
     } else {
       // server-side error
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      if (error.status === 409) {
+        msg = 'L\'email existe déjà';
+      }
     }
     return throwError(() => new Error(msg));
   }

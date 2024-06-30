@@ -40,8 +40,13 @@ export class SignupComponent {
       email:email,
       password: password
     }
-    this.authService.signUp(user).subscribe((res) => {
-      this.authService.login({email: email, password: password});
+    this.authService.signUp(user).subscribe({
+      next: (res) => {
+        this.authService.login({email: email, password: password});
+      },
+      error: (err) => {
+        window.alert(err.message)
+      }
     });
   }
 }

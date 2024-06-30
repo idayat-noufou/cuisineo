@@ -1,7 +1,7 @@
 package com.ynov.webfullstack.back.Service;
 
 import com.ynov.webfullstack.back.Models.Ingredient;
-import com.ynov.webfullstack.back.repositories.IngredientRepository;
+import com.ynov.webfullstack.back.Repositories.IngredientRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

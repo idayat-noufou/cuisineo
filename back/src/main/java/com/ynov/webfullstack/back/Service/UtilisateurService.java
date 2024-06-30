@@ -1,8 +1,8 @@
 package com.ynov.webfullstack.back.Service;
 import com.ynov.webfullstack.back.Models.Recette;
 import com.ynov.webfullstack.back.Models.Utilisateur;
-import com.ynov.webfullstack.back.repositories.RecetteRepository;
-import com.ynov.webfullstack.back.repositories.UtilisateurRepository;
+import com.ynov.webfullstack.back.Repositories.RecetteRepository;
+import com.ynov.webfullstack.back.Repositories.UtilisateurRepository;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;

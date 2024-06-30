@@ -3,7 +3,7 @@ package com.ynov.webfullstack.back.Service;
 import com.ynov.webfullstack.back.Models.DTO.LoginUserDto;
 import com.ynov.webfullstack.back.Models.DTO.RegisterUserDto;
 import com.ynov.webfullstack.back.Models.Utilisateur;
-import com.ynov.webfullstack.back.repositories.UtilisateurRepository;
+import com.ynov.webfullstack.back.Repositories.UtilisateurRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

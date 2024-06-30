@@ -1,25 +1,35 @@
+<div class="container is-flex is-flex-direction-column w">
 
-<h2>Créer un compte</h2>
+  <div class="box is-flex is-align-self-center">
+    <h2 class="title">Créer un compte</h2>
+  </div>
 
-<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="nom">Nom</label>
-    <input type="text" class="form-control" id="nom" formControlName="nom">
-  </div>
-  <div class="form-group">
-    <label for="prenom">Prénom</label>
-    <input type="text" class="form-control" id="prenom" formControlName="prenom">
-  </div>
-  <div class="form-group">
-    <label for="email">Adresse email</label>
-    <input type="email" class="form-control" id="email" formControlName="email">
-  </div>
-  <div class="form-group">
-    <label for="password">Mot de passe</label>
-    <input type="password" class="form-control" id="password" formControlName="password">
-  </div>
-  <button type="submit" class="btn btn-primary">Créer un compte</button>
-</form>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"
+        class="box is-flex is-flex-direction-column">
+    <div class="form-group field">
+      <label for="nom" class="label">Nom</label>
+      <input type="text" class="form-control input" id="nom" formControlName="nom">
+    </div>
+    <div class="form-group field">
+      <label for="prenom" class="label">Prénom</label>
+      <input type="text" class="form-control input" id="prenom" formControlName="prenom">
+    </div>
+    <div class="form-group field">
+      <label for="email" class="label">Adresse email</label>
+      <input type="email" class="form-control input" id="email" formControlName="email">
+    </div>
+    <div class="form-group field">
+      <label for="password" class="label">Mot de passe</label>
+      <input type="password" class="form-control input" id="password" formControlName="password">
+    </div>
+    <button type="submit"
+            class="button is-primary is-medium is-flex is-align-self-flex-end">
+      Créer un compte
+    </button>
+  </form>
 
+  <div class="box">
+    <p>Déjà membre ? <a [routerLink]="['/login']">Connectez-vous !</a></p>
+  </div>
 
-<p>Déjà membre ? <a [routerLink]="['/login']">Connectez-vous !</a></p>
+</div>

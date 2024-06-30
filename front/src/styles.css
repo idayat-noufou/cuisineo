@@ -1,3 +1,213 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+
+
+:root {
+  --bulma-primary-h: 30deg;
+  --bulma-primary-l: 25%;
+  --bulma-link-h: 33deg;
+  --bulma-info-h: 33deg;
+  --bulma-info-l: 63%;
+  --bulma-text-h: 33deg;
+  --bulma-text-l: 63%;
+  --bulma-danger-h: 360deg;
+  --bulma-danger-l: 46%;
+  --bulma-scheme-h: 41;
+  --bulma-scheme-s: 50%;
+  --bulma-arrow-color: hsl(53deg,100%,63%);
+  --bulma-loading-color: hsl(41,14%,24%);
+  --bulma-burger-h: 53deg;
+  --bulma-body-background-color: hsl(51,100%,91%);
+  --bulma-body-color: hsl(51deg,0%,0%);
+  --bulma-hr-background-color: hsl(51,100%,14%);
+  --bulma-strong-color: hsl(41deg,100%,48%);
+  --bulma-text-strong: hsl(41deg,100%,48%);
+  --bulma-skeleton-background: hsl(41,14%,24%);
+}
+
+.breadcrumb {
+  --bulma-breadcrumb-item-color: hsl(53deg,100%,73%);
+  --bulma-breadcrumb-item-hover-color: hsl(53deg,100%,calc(73% + 5%));
+  --bulma-breadcrumb-item-active-color: hsl(53deg,100%,calc(73% + 10%));
+  --bulma-breadcrumb-item-separator-color: hsl(41,14%,24%);
+}
+
+.card {
+  --bulma-card-color: hsl(41deg,14%,71%);
+  --bulma-card-background-color: hsl(41,14%,9%);
+  --bulma-card-header-color: hsl(41deg,14%,93%);
+  --bulma-card-header-shadow: 0 0.125em 0.25em hsla(41,14%,4%,0.1);
+  --bulma-card-footer-border-top: 1px solid hsl(41,14%,21%);
+}
+
+.dropdown {
+  --bulma-dropdown-content-background-color: hsl(41,14%,9%);
+  --bulma-dropdown-item-h: 41;
+  --bulma-dropdown-item-selected-h: 53deg;
+  --bulma-dropdown-divider-background-color: hsl(41,14%,21%);
+}
+
+.menu {
+  --bulma-menu-item-h: 41;
+  --bulma-menu-item-selected-h: 53deg;
+  --bulma-menu-list-border-left: 1px solid hsl(41,14%,24%);
+  --bulma-menu-label-color: hsl(41deg,14%,53%);
+}
+
+.message {
+  --bulma-message-h: 18deg;
+  --bulma-message-body-color: hsl(41deg,14%,71%);
+}
+
+.modal {
+  --bulma-modal-background-background-color: hsla(41,14%,4%,0.86);
+  --bulma-modal-card-head-background-color: hsl(41,14%,9%);
+  --bulma-modal-card-title-color: hsl(41deg,14%,93%);
+  --bulma-modal-card-foot-background-color: hsl(41,14%,11%);
+  --bulma-modal-card-body-background-color: hsl(41,14%,9%);
+}
+
+.navbar {
+  --bulma-navbar-h: 41;
+  --bulma-navbar-background-color: hsl(51,100%,91%);
+  --bulma-navbar-box-shadow-color: hsl(51,100%,91%);
+  --bulma-navbar-item-selected-h: 53deg;
+  --bulma-navbar-tab-hover-border-bottom-color: hsl(53deg,100%,63%);
+  --bulma-navbar-tab-active-color: hsl(53deg,100%,63%);
+  --bulma-navbar-tab-active-border-bottom-color: hsl(53deg,100%,63%);
+  --bulma-navbar-dropdown-background-color: hsl(41,14%,9%);
+  --bulma-navbar-dropdown-border-color: hsl(41,14%,24%);
+  --bulma-navbar-dropdown-arrow: hsl(53deg,100%,63%);
+  --bulma-navbar-dropdown-boxed-shadow: 0 0.5em 0.5em hsla(41,14%,4%,0.1),0 0 0 1px hsla(41,14%,4%,0.1);
+  --bulma-navbar-dropdown-item-h: 41;
+}
+
+.pagination {
+  --bulma-pagination-item-h: 41;
+  --bulma-pagination-disabled-color: hsl(41deg,14%,53%);
+  --bulma-pagination-disabled-background-color: hsl(41,14%,24%);
+  --bulma-pagination-disabled-border-color: hsl(41,14%,24%);
+  --bulma-pagination-current-color: hsla(53deg,100%,100%,1);
+  --bulma-pagination-current-background-color: hsl(53deg,100%,63%);
+  --bulma-pagination-current-border-color: hsl(53deg,100%,63%);
+  --bulma-pagination-ellipsis-color: hsl(41deg,14%,53%);
+  --bulma-pagination-shadow-inset: inset 0 0.0625em 0.125em hsla(41,14%,4%,0.2);
+  --bulma-pagination-selected-item-h: 53deg;
+}
+
+.panel {
+  --bulma-panel-item-border: 1px solid hsl(41,14%,21%);
+  --bulma-panel-tab-border-bottom-color: hsl(41,14%,24%);
+  --bulma-panel-list-item-color: hsl(41deg,14%,71%);
+  --bulma-panel-list-item-hover-color: hsl(53deg,100%,63%);
+  --bulma-panel-block-color: hsl(41deg,14%,93%);
+  --bulma-panel-block-hover-background-color: hsl(41,14%,14%);
+  --bulma-panel-block-active-border-left-color: hsl(53deg,100%,63%);
+  --bulma-panel-block-active-icon-color: hsl(53deg,100%,63%);
+  --bulma-panel-icon-color: hsl(41deg,14%,53%);
+}
+
+.tabs {
+  --bulma-tabs-border-bottom-color: hsl(41,14%,24%);
+  --bulma-tabs-link-color: hsl(41deg,14%,71%);
+  --bulma-tabs-link-hover-border-bottom-color: hsl(41deg,14%,93%);
+  --bulma-tabs-link-hover-color: hsl(41deg,14%,93%);
+  --bulma-tabs-link-active-border-bottom-color: hsl(53deg,100%,73%);
+  --bulma-tabs-link-active-color: hsl(53deg,100%,73%);
+  --bulma-tabs-boxed-link-hover-background-color: hsl(41,14%,14%);
+  --bulma-tabs-boxed-link-hover-border-bottom-color: hsl(41,14%,24%);
+  --bulma-tabs-boxed-link-active-background-color: hsl(41,14%,9%);
+  --bulma-tabs-boxed-link-active-border-color: hsl(41,14%,24%);
+  --bulma-tabs-toggle-link-border-color: hsl(41,14%,24%);
+  --bulma-tabs-toggle-link-hover-background-color: hsl(41,14%,14%);
+  --bulma-tabs-toggle-link-hover-border-color: hsl(41,14%,calc(24% + 10%));
+  --bulma-tabs-toggle-link-active-background-color: hsl(53deg,100%,63%);
+  --bulma-tabs-toggle-link-active-border-color: hsl(53deg,100%,63%);
+  --bulma-tabs-toggle-link-active-color: hsla(53deg,100%,100%,1);
+}
+
+.box {
+  --bulma-box-background-color: hsl(51,100%,91%);
+  --bulma-box-color: hsl(41deg,14%,14%);
+  --bulma-box-link-hover-shadow: 0 0.5em 1em -0.125em hsla(41,14%,4%,0.1),0 0 0 1px hsl(53deg,100%,63%);
+  --bulma-box-link-active-shadow: inset 0 1px 2px hsla(41,14%,4%,0.2),0 0 0 1px hsl(53deg,100%,63%);
+}
+
+.content {
+  --bulma-content-heading-color: hsl(41deg,14%,9%);
+  --bulma-content-blockquote-background-color: hsl(41,14%,14%);
+  --bulma-content-blockquote-border-left: 5px solid hsl(41,14%,24%);
+  --bulma-content-table-cell-border: 1px solid hsl(41,14%,24%);
+  --bulma-content-table-cell-heading-color: hsl(41deg,14%,9%);
+  --bulma-content-table-head-cell-color: hsl(41deg,14%,9%);
+  --bulma-content-table-foot-cell-color: hsl(41deg,14%,9%);
+}
+
+.delete {
+  --bulma-delete-color: hsla(41deg,14%,50%,1);
+}
+
+.notification {
+  --bulma-notification-h: 41;
+  --bulma-notification-color-l: 9%;
+  --bulma-notification-code-background-color: hsl(41,14%,9%);
+}
+
+.progress {
+  --bulma-progress-bar-background-color: hsl(41,14%,21%);
+  --bulma-progress-value-background-color: hsl(41deg,14%,71%);
+}
+
+.table {
+  --bulma-table-color: hsl(41deg,14%,93%);
+  --bulma-table-background-color: hsl(41,14%,9%);
+  --bulma-table-cell-border-color: hsl(41,14%,24%);
+  --bulma-table-cell-heading-color: hsl(41deg,14%,93%);
+  --bulma-table-head-cell-color: hsl(41deg,14%,93%);
+  --bulma-table-foot-cell-color: hsl(41deg,14%,93%);
+  --bulma-table-row-hover-background-color: hsl(41,14%,11%);
+  --bulma-table-row-active-color: hsla(91deg,100%,6%,1);
+  --bulma-table-striped-row-even-background-color: hsl(41,14%,11%);
+  --bulma-table-striped-row-even-hover-background-color: hsl(41,14%,13%);
+}
+
+.tag {
+  --bulma-tag-h: 20deg;
+}
+
+.title {
+  --bulma-title-color: hsl(41deg,100%,9%);
+}
+
+.input {
+  --bulma-input-h: 41;
+  --bulma-input-s: 23;
+  --bulma-input-focus-h: 53deg;
+  --bulma-input-placeholder-color: hsla(41deg,14%,93%,0.3);
+  --bulma-input-disabled-color: hsl(41deg,14%,53%);
+  --bulma-input-disabled-background-color: hsl(41,14%,14%);
+  --bulma-input-disabled-border-color: hsl(41,14%,14%);
+  --bulma-input-disabled-placeholder-color: hsla(41deg,14%,53%,0.3);
+  --bulma-input-arrow: hsl(53deg,100%,63%);
+  --bulma-input-icon-color: hsla(41deg,14%,89%,1);
+  --bulma-input-icon-hover-color: hsl(41deg,14%,53%);
+  --bulma-input-icon-focus-color: hsl(53deg,100%,63%);
+}
+
+.file {
+  --bulma-file-name-border-color: hsl(41,14%,24%);
+  --bulma-file-h: 41;
+}
+
+.footer {
+  --bulma-footer-background-color: hsl(41,14%,11%);
+}
+
+.media {
+  --bulma-media-border-color: hsla(41,14%,24%,0.5);
+}
+
+
+
+

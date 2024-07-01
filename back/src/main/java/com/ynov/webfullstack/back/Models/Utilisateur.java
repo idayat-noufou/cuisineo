@@ -1,5 +1,6 @@
 package com.ynov.webfullstack.back.Models;
 import jakarta.persistence.*;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -23,6 +24,7 @@ public class Utilisateur implements UserDetails {
     @Column(name="email")
     private String email;
 
+//    @UniqueElements
     @Column(name="mdp")
     private String mdp;
 

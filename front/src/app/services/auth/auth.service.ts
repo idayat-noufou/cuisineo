@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Utilisateur} from "../../models/utilisateur";
-import {catchError, map, Observable, throwError} from "rxjs";
+import {SignupRequest} from "../../models/requests/signupRequest";
+import {catchError, Observable, throwError} from "rxjs";
+import {LoginRequest} from "../../models/requests/loginRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +13,20 @@ export class AuthService {
   endpoint: string = 'http://localhost:3080';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
-  constructor(private http: HttpClient, public router: Router) {}
+
+  constructor(private http: HttpClient, public router: Router) {
+  }
+
   // Sign-up
-  signUp(user: Utilisateur): Observable<any> {
+  signUp(user: SignupRequest): Observable<any> {
     let api = `${this.endpoint}/auth/signup`;
     return this.http.post(api, user).pipe(catchError(this.handleError));
   }
+
   // Sign-in
-  login(user: Utilisateur) {
+  login(user: LoginRequest) {
     return this.http
-      .post<any>(`${this.endpoint}/auth/login`, user)
-      .subscribe((res: any) => {
+      .post<any>(`${this.endpoint}/auth/login`, user).subscribe(res => {
         localStorage.setItem('access_token', res.token);
         this.router.navigate(["/home"])
         // this.getUserProfile(res._id).subscribe((res) => {
@@ -31,32 +35,33 @@ export class AuthService {
         // });
       });
   }
+
   getToken() {
-    return localStorage.getItem('token');
-    // return localStorage.getItem('access_token');
+    return localStorage.getItem('access_token');
   }
+
   isLoggedIn(): boolean {
-    let authToken = localStorage.getItem('token');
-    // let authToken = localStorage.getItem('access_token');
+    let authToken = localStorage.getItem('access_token');
     return authToken !== null;
   }
+
   doLogout() {
-    let removeToken = localStorage.removeItem('token');
-    // let removeToken = localStorage.removeItem('access_token');
+    let removeToken = localStorage.removeItem('access_token');
     if (removeToken == null) {
-      this.router.navigate(['log-in']);
+      this.router.navigate(['login']);
     }
   }
-  // User profile
-  getUserProfile(id: any): Observable<any> {
-    let api = `${this.endpoint}/user-profile/${id}`;
-    return this.http.get(api, { headers: this.headers }).pipe(
-      map((res) => {
-        return res || {};
-      }),
-      catchError(this.handleError)
-    );
-  }
+
+  // // User profile
+  // getUserProfile(id: any): Observable<any> {
+  //   let api = `${this.endpoint}/user-profile/${id}`;
+  //   return this.http.get(api, { headers: this.headers }).pipe(
+  //     map((res) => {
+  //       return res || {};
+  //     }),
+  //     catchError(this.handleError)
+  //   );
+  // }
   // Error
   handleError(error: HttpErrorResponse) {
     let msg = '';
@@ -66,10 +71,14 @@ export class AuthService {
     } else {
       // server-side error
       msg = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      if (error.status === 409) {
+        msg = 'L\'email existe déjà';
+      }
     }
-    return throwError(msg);
+    return throwError(() => new Error(msg));
   }
-  public deconnecter(){
-    localStorage.removeItem('token');
+
+  public deconnecter() {
+    localStorage.removeItem('access_token');
   }
 }

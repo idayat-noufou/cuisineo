@@ -15,4 +15,8 @@ export class RecetteService{
   getRecettes(): Observable<Recette[]> {
     return this.http.get<Recette[]>(`${this.apiUrl}/recettes`);
   }
+
+  getRecetteById(id: number): Observable<Recette> {
+    return this.http.get<Recette>(`${this.apiUrl}/${id}`);
+  }
 }

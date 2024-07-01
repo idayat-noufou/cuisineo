@@ -1,4 +1,4 @@
-package com.ynov.webfullstack.back.repositories;
+package com.ynov.webfullstack.back.Repositories;
 
 import com.ynov.webfullstack.back.Models.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface UtilisateurRepository extends JpaRepository<Utilisateur,Long> {
+public interface UtilisateurRepository extends JpaRepository<Utilisateur, UUID> {
     Optional<Utilisateur> findByEmail(String username);
 }
 

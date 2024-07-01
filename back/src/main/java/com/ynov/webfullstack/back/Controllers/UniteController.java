@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class UniteController {
@@ -16,7 +17,7 @@ public class UniteController {
     private UniteService uniteService;
 
     @GetMapping("/unite/{id}")
-    public Optional<Unite> getUnite(long id){
+    public Optional<Unite> getUnite(UUID id){
         return uniteService.getUnite(id);
     }
 
@@ -31,7 +32,7 @@ public class UniteController {
     }
 
     @PostMapping("/unite/{id}")
-    public void deleteUnite(long id){
+    public void deleteUnite(UUID id){
         uniteService.deleteUnite(id);
     }
 }

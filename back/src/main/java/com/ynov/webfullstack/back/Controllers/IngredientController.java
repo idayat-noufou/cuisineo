@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class IngredientController {
@@ -18,7 +19,7 @@ public class IngredientController {
     private IngredientService ingredientService;
 
     @GetMapping("/ingredient/{id}")
-    public Optional<Ingredient> getIngredient(long id){
+    public Optional<Ingredient> getIngredient(UUID id){
         return ingredientService.getIngredient(id);
     }
 
@@ -33,7 +34,7 @@ public class IngredientController {
     }
 
     @PostMapping("/ingredient/{id}")
-    public void deleteIngredient(long id){
+    public void deleteIngredient(UUID id){
         ingredientService.deleteIngredient(id);
     }
 }

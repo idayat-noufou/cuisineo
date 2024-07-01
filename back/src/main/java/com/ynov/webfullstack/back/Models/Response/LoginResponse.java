@@ -1,5 +1,7 @@
 package com.ynov.webfullstack.back.Models.Response;
 
+import java.util.UUID;
+
 public class LoginResponse {
     private String token;
 

@@ -19,7 +19,7 @@ public class RecetteController {
     private RecetteService recetteService;
 
     @GetMapping("/recettes/{id}")
-    public Optional<Recette> getRecette(@PathVariable Long id){
+    public Optional<Recette> getRecette(@PathVariable UUID id){
         return recetteService.getRecette(id);
     }
 
@@ -41,7 +41,7 @@ public class RecetteController {
 
 
     @DeleteMapping("/recette/{id}")
-    public void deleteRecette(Long id){
+    public void deleteRecette(UUID id){
         recetteService.deleteRecette(id);
     }
 }

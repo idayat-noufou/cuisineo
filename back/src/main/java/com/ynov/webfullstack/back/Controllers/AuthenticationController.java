@@ -24,13 +24,9 @@ public class AuthenticationController {
 
     @PostMapping("/signup")
     public ResponseEntity<Utilisateur> register(@RequestBody RegisterUserDto registerUserDto) {
-        try {
-            Utilisateur registeredUser = authenticationService.signup(registerUserDto);
-            return ResponseEntity.ok(registeredUser);
-        } catch (Exception e) {
-            return ResponseEntity.status(409).build();
-        }
+        Utilisateur registeredUser = authenticationService.signup(registerUserDto);
 
+        return ResponseEntity.ok(registeredUser);
     }
 
     @PostMapping("/login")

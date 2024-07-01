@@ -28,10 +28,6 @@ public class AuthenticationService {
     }
 
     public Utilisateur signup(RegisterUserDto input) {
-        Utilisateur UserFound = userRepository.findByEmail(input.getEmail()).orElse(null);
-        if (UserFound != null) {
-            throw new RuntimeException("User already exists");
-        }
         Utilisateur user = new Utilisateur();
         user.setNom(input.getNom());
         user.setPrenom(input.getPrenom());

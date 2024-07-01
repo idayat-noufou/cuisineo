@@ -82,6 +82,3 @@ build/
 ### VS Code ###
 .vscode/
 /back/data/
-
-### Logs ###
-/back/logs

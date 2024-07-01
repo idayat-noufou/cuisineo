@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.Optional;
 import java.util.UUID;
 
-@Controller
+@RestController
 public class RecetteController {
 
     @Autowired
@@ -25,6 +25,7 @@ public class RecetteController {
 
     @GetMapping("/recettes/")
     public Iterable<Recette> getRecettes() {
+
         return recetteService.getRecettes();
     }
 

@@ -13,7 +13,7 @@ public class Recette {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titre")
+    @Column(name="titre")
     private String titre;
 
     public int getNb_personnes() {
@@ -24,7 +24,7 @@ public class Recette {
         return temps;
     }
 
-    public String getInstruction() {
+    public int getInstruction() {
         return instruction;
     }
 
@@ -36,23 +36,25 @@ public class Recette {
         this.utilisateurRecettes = utilisateurRecettes;
     }
 
-    @Column(name = "nb_personnes")
+    @Column(name="nb_personnes")
     private int nb_personnes;
 
-    @Column(name = "temps")
+    @Column(name="temps")
     private int temps;
 
-    @Column(name = "instruction")
-    private String instruction;
+    @Column(name="instruction")
+    private int instruction;
 
     @ManyToOne
-    @JoinColumn(name = "utilisateur_id")
+    @JoinColumn(name="utilisateur_id")
     private Utilisateur utilisateurRecettes;
+
+
+
 
 
     @ManyToMany
     private List<Utilisateur> utilisateursfavoris;
-
     public List<Utilisateur> getUtilisateursfavoris() {
         return utilisateursfavoris;
     }
@@ -60,8 +62,7 @@ public class Recette {
     public void setUtilisateursfavoris(List<Utilisateur> utilisateursfavoris) {
         this.utilisateursfavoris = utilisateursfavoris;
     }
-
-    public Recette(int nb_personnes, String titre, int temps, String instruction) {
+    public Recette(int nb_personnes, String titre, int temps, int instruction) {
         this.nb_personnes = nb_personnes;
         this.titre = titre;
         this.temps = temps;
@@ -69,12 +70,12 @@ public class Recette {
 
     }
 
-    public Recette() {
-    }
+    public Recette() {}
 
     public String getTitre() {
         return titre;
     }
+
 
 
     public void setTitre(String titre) {
@@ -89,7 +90,7 @@ public class Recette {
         this.temps = temps;
     }
 
-    public void setInstruction(String instruction) {
+    public void setInstruction(int instruction) {
         this.instruction = instruction;
     }
 

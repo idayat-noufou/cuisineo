@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Controller
 public class InstructionController {
@@ -20,7 +19,7 @@ public class InstructionController {
     private InstructionService instructionService;
 
     @GetMapping("/instructions/{id}")
-    public Optional<Instruction> getInstruction(UUID id){
+    public Optional<Instruction> getInstruction(long id){
         return instructionService.getInstruction(id);
     }
 
@@ -35,7 +34,7 @@ public class InstructionController {
     }
 
     @PostMapping("/instruction/{id}")
-    public void deleteInstruction(UUID id){
+    public void deleteInstruction(long id){
         instructionService.deleteInstruction(id);
     }
 }

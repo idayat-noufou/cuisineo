@@ -1,13 +1,12 @@
 package com.ynov.webfullstack.back.Service;
 
 import com.ynov.webfullstack.back.Models.Instruction;
-import com.ynov.webfullstack.back.Repositories.InstructionRepository;
+import com.ynov.webfullstack.back.repositories.InstructionRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Data
 @Service
@@ -16,7 +15,7 @@ public class InstructionService {
     @Autowired
     private InstructionRepository instructionRepository;
 
-    public Optional<Instruction> getInstruction(final UUID id) {
+    public Optional<Instruction> getInstruction(final long id) {
         return instructionRepository.findById(id);
     }
 
@@ -24,7 +23,7 @@ public class InstructionService {
         return instructionRepository.findAll();
     }
 
-    public void deleteInstruction(final UUID id) {
+    public void deleteInstruction(final long id) {
         instructionRepository.deleteById(id);
     }
 

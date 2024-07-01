@@ -1,7 +1,9 @@
 package com.ynov.webfullstack.back.Service;
 
 import com.ynov.webfullstack.back.Models.Recette;
-import com.ynov.webfullstack.back.Repositories.RecetteRepository;
+import com.ynov.webfullstack.back.repositories.RecetteRepository;
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -14,7 +16,7 @@ public class RecetteService {
 
     private RecetteRepository recetteRepository;
 
-    public Optional<Recette> getRecette(UUID id) {
+    public Optional<Recette> getRecette(Long id) {
         return recetteRepository.findById(id);
     }
 
@@ -22,7 +24,7 @@ public class RecetteService {
         return recetteRepository.findAll();
     }
 
-    public void deleteRecette(UUID id) {
+    public void deleteRecette(Long id) {
         recetteRepository.deleteById(id);
     }
 

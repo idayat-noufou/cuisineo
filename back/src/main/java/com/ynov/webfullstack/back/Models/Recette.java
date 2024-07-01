@@ -11,14 +11,30 @@ public class Recette {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
 
     @Column(name="titre")
     private String titre;
 
+    public int getNb_personnes() {
+        return nb_personnes;
+    }
 
+    public int getTemps() {
+        return temps;
+    }
 
+    public int getInstruction() {
+        return instruction;
+    }
 
+    public Utilisateur getUtilisateurRecettes() {
+        return utilisateurRecettes;
+    }
+
+    public void setUtilisateurRecettes(Utilisateur utilisateurRecettes) {
+        this.utilisateurRecettes = utilisateurRecettes;
+    }
 
     @Column(name="nb_personnes")
     private int nb_personnes;
@@ -39,11 +55,6 @@ public class Recette {
 
     @ManyToMany
     private List<Utilisateur> utilisateursfavoris;
-
-    @OneToMany(mappedBy = "recette")
-    private List<Composition> composition;
-
-
     public List<Utilisateur> getUtilisateursfavoris() {
         return utilisateursfavoris;
     }
@@ -70,17 +81,7 @@ public class Recette {
     public void setTitre(String titre) {
         this.titre = titre;
     }
-    public int getNb_personnes() {
-        return nb_personnes;
-    }
 
-    public int getTemps() {
-        return temps;
-    }
-
-    public int getInstruction() {
-        return instruction;
-    }
     public void setNb_personnes(int nb_personnes) {
         this.nb_personnes = nb_personnes;
     }
@@ -93,11 +94,5 @@ public class Recette {
         this.instruction = instruction;
     }
 
-    public Utilisateur getUtilisateurRecettes() {
-        return utilisateurRecettes;
-    }
 
-    public void setUtilisateurRecettes(Utilisateur utilisateurRecettes) {
-        this.utilisateurRecettes = utilisateurRecettes;
-    }
 }

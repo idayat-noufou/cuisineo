@@ -2,29 +2,30 @@ package com.ynov.webfullstack.back.Models;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
-
 @Entity
 @Table(name = "composition")
 public class Composition {
 
-    @EmbeddedId
-    private CompositionKey id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToOne
-    @MapsId("recetteId")
-    @JoinColumn(name = "recette_id")
-    private Recette recette;
-
-    @ManyToOne
-    @MapsId("ingredientId")
-    @JoinColumn(name = "ingredient_id")
-    private Ingredient ingredient;
+    @Column(name="ingredient_id")
+    private int ingredient_id;
 
     @Column(name="quantite")
     private int quantite;
 
+    public Composition(int ingredient_id, int quantite) {
+        this.ingredient_id = ingredient_id;
+        this.quantite = quantite;
+    }
 
+    public Composition() {}
+
+    public int getIngredient_id() {
+        return ingredient_id;
+    }
 
     public int getQuantite() {
         return quantite;
@@ -34,4 +35,7 @@ public class Composition {
         this.quantite = quantite;
     }
 
+    public void setIngredient_id(int ingredient_id) {
+        this.ingredient_id = ingredient_id;
+    }
 }

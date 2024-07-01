@@ -2,13 +2,12 @@ package com.ynov.webfullstack.back.Service;
 
 
 import com.ynov.webfullstack.back.Models.Composition;
-import com.ynov.webfullstack.back.Repositories.CompositionRepository;
+import com.ynov.webfullstack.back.repositories.CompositionRepository;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Data
 @Service
@@ -17,7 +16,7 @@ public class CompositionService {
     @Autowired
     private CompositionRepository compositionRepository;
 
-    public Optional<Composition> getComposition(final UUID id) {
+    public Optional<Composition> getComposition(final long id) {
         return compositionRepository.findById(id);
     }
 
@@ -25,7 +24,7 @@ public class CompositionService {
         return compositionRepository.findAll();
     }
 
-    public void deleteComposition(final UUID id) {
+    public void deleteComposition(final long id) {
         compositionRepository.deleteById(id);
     }
 

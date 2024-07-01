@@ -1,15 +1,20 @@
 package com.ynov.webfullstack.back.Service;
 import com.ynov.webfullstack.back.Models.Recette;
 import com.ynov.webfullstack.back.Models.Utilisateur;
-import com.ynov.webfullstack.back.Repositories.RecetteRepository;
-import com.ynov.webfullstack.back.Repositories.UtilisateurRepository;
+import com.ynov.webfullstack.back.repositories.RecetteRepository;
+import com.ynov.webfullstack.back.repositories.UtilisateurRepository;
 
+import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
-
 @Service
 public class UtilisateurService {
 
@@ -19,7 +24,7 @@ public class UtilisateurService {
 
 
     // fonction pour ajouter un favori
-    public Utilisateur addFavori(UUID id, UUID recetteId) {
+    public Utilisateur addFavori(Long id, Long recetteId) {
 
         Recette recette = recetteRepository.findById(recetteId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,

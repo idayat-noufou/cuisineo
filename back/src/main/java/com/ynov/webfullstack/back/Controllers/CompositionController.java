@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Controller
 public class CompositionController {
@@ -19,7 +18,7 @@ public class CompositionController {
     private CompositionService compositionService;
 
     @GetMapping("/composition/{id}")
-    public Optional<Composition> getComposition(UUID id){
+    public Optional<Composition> getComposition(long id){
         return compositionService.getComposition(id);
     }
 
@@ -34,7 +33,7 @@ public class CompositionController {
     }
 
     @PostMapping("/composition/{id}")
-    public void deleteComposition(UUID id){
+    public void deleteComposition(long id){
         compositionService.deleteComposition(id);
     }
 }

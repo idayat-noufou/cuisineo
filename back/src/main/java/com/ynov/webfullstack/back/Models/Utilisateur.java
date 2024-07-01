@@ -11,8 +11,8 @@ import java.util.UUID;
 public class Utilisateur implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="prenom")
     private String prenom;
@@ -78,11 +78,11 @@ public class Utilisateur implements UserDetails {
         this.role = role;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 

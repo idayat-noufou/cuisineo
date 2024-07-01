@@ -2,15 +2,13 @@ package com.ynov.webfullstack.back.Models;
 
 import jakarta.persistence.*;
 
-import java.util.UUID;
-
 @Entity
 @Table(name = "unite")
 public class Unite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private UUID id;
+    private Long id;
 
     @Column(name="nom")
     private String nom;

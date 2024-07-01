@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Optional;
 
@@ -27,11 +28,10 @@ public class IngredientController {
         return ingredientService.getIngredients();
     }
 
-    @PostMapping("/ingredient/{ingredient}")
-    public void saveIngredient(Ingredient ingredient){
+    @PostMapping("/ingredient")
+    public void saveIngredient(@RequestBody Ingredient ingredient) {
         ingredientService.saveIngredient(ingredient);
     }
-
     @PostMapping("/ingredient/{id}")
     public void deleteIngredient(long id){
         ingredientService.deleteIngredient(id);

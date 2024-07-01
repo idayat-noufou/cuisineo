@@ -25,7 +25,6 @@ public class RecetteController {
 
     @GetMapping("/recettes/")
     public Iterable<Recette> getRecettes() {
-
         return recetteService.getRecettes();
     }
 

@@ -11,5 +11,5 @@ import java.util.UUID;
 public interface RecetteRepository extends JpaRepository<Recette, Long> {
     List<Recette> findByTitre(String titre);
     Iterable<Recette> findByTitreContaining(String keyword);
-    List<Recette> findByUtilisateursId(UUID utilisateurId);
+
 }

@@ -25,10 +25,7 @@ public class UtilisateurController {
         return utilisateurService.addFavori(id, recetteId);
     }
 
-    @GetMapping("/utilisateurs/{id}/recettes")
-    public List<Recette> getRecettesForUtilisateur(@PathVariable UUID id) {
-        return utilisateurService.getRecettesForUtilisateur(id);
-    }
+
     @GetMapping("/utilisateurs/{id}/favoris")
     public List<Recette> getFavoris(@PathVariable UUID id) {
         return utilisateurService.getFavoris(id);

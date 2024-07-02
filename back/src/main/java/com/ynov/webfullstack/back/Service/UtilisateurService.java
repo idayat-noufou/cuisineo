@@ -26,9 +26,7 @@ public class UtilisateurService {
 
 
 
-    public List<Recette> getRecettesForUtilisateur(@PathVariable UUID id) {
-        return recetteRepository.findByUtilisateursId(id);
-    }
+
 
     public List<Recette> getFavoris(@PathVariable UUID id) {
         Utilisateur utilisateur = utilisateurRepository.findById(id)

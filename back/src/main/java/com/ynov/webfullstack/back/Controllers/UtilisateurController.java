@@ -16,7 +16,7 @@ public class UtilisateurController {
     private UtilisateurService utilisateurService;
 
 
-    @GetMapping("userProfile/{id}")
+    @GetMapping("/userProfile/{id}")
     public Optional<Utilisateur> getUtilisateur(@PathVariable UUID id){
         return utilisateurService.getUserProfile(id);
     }

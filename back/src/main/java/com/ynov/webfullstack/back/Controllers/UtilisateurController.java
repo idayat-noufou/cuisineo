@@ -20,18 +20,18 @@ public class UtilisateurController {
     public Optional<Utilisateur> getUtilisateur(@PathVariable UUID id){
         return utilisateurService.getUserProfile(id);
     }
-    @PutMapping("/utilisateurs/{id}/addFavori")
-    public Utilisateur addFavori(@PathVariable UUID id, @RequestBody Long recetteId) {
+    @PutMapping("/utilisateurs/{id}/{recetteId}")
+    public Utilisateur addFavori(@PathVariable UUID id, @PathVariable Long recetteId) {
         return utilisateurService.addFavori(id, recetteId);
     }
 
 
-    @GetMapping("/utilisateurs/{id}/favoris")
+    @GetMapping("/utilisateurs/{id}")
     public List<Recette> getFavoris(@PathVariable UUID id) {
         return utilisateurService.getFavoris(id);
     }
-    @DeleteMapping("/utilisateurs/{id}/deleteFavori")
-    public void deleteFavori(@PathVariable UUID id, @RequestBody Long recetteId) {
+    @DeleteMapping("/utilisateurs/{id}/{recetteId}")
+    public void deleteFavori(@PathVariable UUID id, @PathVariable Long recetteId) {
         utilisateurService.deleteFavori(id, recetteId);
     }
 

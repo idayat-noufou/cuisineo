@@ -13,7 +13,7 @@ export class UtilisateurService{
   constructor(private http: HttpClient, public router: Router) {}
 
 
-  getUtilisateurById(id: string | undefined): Observable<Utilisateur> {
+  getUserProfile(id: string | undefined): Observable<Utilisateur> {
     return this.http.get<Utilisateur>(`${this.apiUrl}/${id}`);
   }
 }

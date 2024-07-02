@@ -22,7 +22,7 @@ export class UserProfileComponent {
   ) { }
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
-    this.utilisateurService.getUtilisateurById(id).subscribe((data: any) => {
+    this.utilisateurService.getUserProfile(id).subscribe((data: any) => {
       this.utilisateur = data;
     });
   }

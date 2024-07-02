@@ -34,10 +34,12 @@ export class HeaderComponent {
   }
 
   ngOnInit(): void {
-    this.utilisateurService.getUtilisateurById(this.userId).subscribe(data => {
+    this.utilisateurService.getUserProfile(this.userId).subscribe(data => {
       this.utilisateur = data;
       // @ts-ignore
         let id = this.authService.getUserProfile()?.id;
+        // @ts-ignore
+      console.log(this.authService.getUserProfile()?.id);
       if(id == null) {
         window.alert("pas d'utilisateur dans le token");
       }

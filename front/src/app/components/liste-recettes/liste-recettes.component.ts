@@ -1,16 +1,17 @@
-import {Component, OnInit} from '@angular/core';
-import {Recette} from "../../models/recette";
+import { Component } from '@angular/core';
 import {RecetteService} from "../../services/Recette/recette.service";
+import {Recette} from "../../models/recette";
+import {RouterModule} from "@angular/router";
+import {CommonModule, NgFor} from "@angular/common";
 
-// @ts-ignore
 @Component({
-  selector: 'liste-recettes',
+  selector: 'app-liste-recettes',
   standalone: true,
-  imports: [],
-  templateUrl: './liste-recette.component.html',
-  styleUrl: './liste-recette.component.css'
+  imports: [NgFor, RouterModule],
+  templateUrl: './liste-recettes.component.html',
+  styleUrl: './liste-recettes.component.css'
 })
-export class ListeRecettesComponent implements OnInit {
+export class ListeRecettesComponent {
   recettes: Recette[] = [];
 
   constructor(private recetteService: RecetteService) { }

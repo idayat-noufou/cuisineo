@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { RecetteService } from "../../services/Recette/recette.service";
-import { Recette } from "../../models/recette";
+import { Component } from '@angular/core';
+import {CommonModule} from "@angular/common";
+import {Recette} from "../../models/recette";
+import {ActivatedRoute} from "@angular/router";
+import {RecetteService} from "../../services/Recette/recette.service";
 
 @Component({
   selector: 'app-recette-detail',
-  templateUrl: './recette-detail.component.html',
   standalone: true,
-  styleUrls: ['./recette-detail.component.css']
+  imports: [
+    CommonModule
+  ],
+  templateUrl: './recette-detail.component.html',
+  styleUrl: './recette-detail.component.css'
 })
-export class RecetteDetailComponent implements OnInit {
+export class RecetteDetailComponent {
   recette: Recette | undefined;
 
   constructor(

@@ -10,9 +10,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let recette of recettes">
-        <a [routerLink]="['/recettes', recette.id]"><th>recette.titre</th></a>
-        <th>recette.temps</th>
-        <th>recette.nb_personnes</th>
+        <a [routerLink]="['/recettes', recette.id]"><th>{{ recette.titre }}</th></a>
+        <th>{{ recette.temps }}</th>
+        <th>{{ recette.nb_personnes }}</th>
       </tr>
     </tbody>
   </table>

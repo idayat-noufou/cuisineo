@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngfor="let recette of recettes">
+    <tr *ngFor="let recette of recettes">
       <a [routerLink]="['/recettes', recette.id]"><th>recette.titre</th></a>
       <th>recette.temps</th>
       <th>recette.nb_personnes</th>

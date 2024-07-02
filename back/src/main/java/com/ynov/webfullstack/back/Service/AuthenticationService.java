@@ -1,5 +1,8 @@
 package com.ynov.webfullstack.back.Service;
 
+import com.ynov.webfullstack.back.Exceptions.AuthenticationFailedException;
+import com.ynov.webfullstack.back.Exceptions.UserAlreadyExistsException;
+import org.springframework.security.core.AuthenticationException;
 import com.ynov.webfullstack.back.Models.DTO.LoginUserDto;
 import com.ynov.webfullstack.back.Models.DTO.RegisterUserDto;
 import com.ynov.webfullstack.back.Models.Utilisateur;
@@ -18,9 +21,9 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationService(
-        UtilisateurRepository userRepository,
-        AuthenticationManager authenticationManager,
-        PasswordEncoder passwordEncoder
+            UtilisateurRepository userRepository,
+            AuthenticationManager authenticationManager,
+            PasswordEncoder passwordEncoder
     ) {
         this.authenticationManager = authenticationManager;
         this.userRepository = userRepository;
@@ -30,7 +33,7 @@ public class AuthenticationService {
     public Utilisateur signup(RegisterUserDto input) {
         Utilisateur UserFound = userRepository.findByEmail(input.getEmail()).orElse(null);
         if (UserFound != null) {
-            throw new RuntimeException("User already exists");
+            throw new UserAlreadyExistsException("User already exists");
         }
         Utilisateur user = new Utilisateur();
         user.setNom(input.getNom());
@@ -42,14 +45,18 @@ public class AuthenticationService {
     }
 
     public Utilisateur authenticate(LoginUserDto input) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        input.getEmail(),
-                        input.getPassword()
-                )
-        );
-
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            input.getEmail(),
+                            input.getPassword()
+                    )
+            );
+        } catch (AuthenticationException e) {
+            throw new AuthenticationFailedException("Invalid email or password");
+        }
         return userRepository.findByEmail(input.getEmail())
-                .orElseThrow();
+                .orElseThrow(() -> new AuthenticationFailedException("User not found after authentication"));
+
     }
 }

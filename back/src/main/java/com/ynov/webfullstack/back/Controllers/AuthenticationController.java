@@ -7,7 +7,6 @@ import com.ynov.webfullstack.back.Models.Utilisateur;
 import com.ynov.webfullstack.back.Service.AuthenticationService;
 import com.ynov.webfullstack.back.Service.JwtService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/auth")
@@ -43,6 +42,13 @@ public class AuthenticationController {
         loginResponse = new LoginResponse();
         loginResponse.setToken(jwtToken);
         loginResponse.setExpiresIn(jwtService.getExpirationTime());
+
+        Utilisateur jwtUser = new Utilisateur();
+        jwtUser.setId(authenticatedUser.getId());
+        jwtUser.setEmail(authenticatedUser.getEmail());
+        jwtUser.setNom(authenticatedUser.getNom());
+        jwtUser.setPrenom(authenticatedUser.getPrenom());
+        loginResponse.setUser(jwtUser);
 
         return ResponseEntity.ok(loginResponse);
     }

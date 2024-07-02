@@ -7,7 +7,7 @@ import {ListeRecettesComponent} from "../liste-recettes/liste-recettes.component
   selector: 'app-home',
   standalone: true,
   imports: [
-    ListeRecettesComponent
+    ListeRecettesComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

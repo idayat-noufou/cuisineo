@@ -11,9 +11,10 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'testAuth', component: TestAuthComponent,  canActivate: [authGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'recettes', component: ListeRecettesComponent },
   { path: 'recettes/:id', component: RecetteDetailComponent },
+  { path: 'testAuth', component: TestAuthComponent,  canActivate: [authGuard] },
+  { path: 'userProfile/:id', component: TestAuthComponent,  canActivate: [authGuard] },
 ];

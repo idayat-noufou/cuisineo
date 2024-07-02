@@ -28,13 +28,7 @@ public class Recette {
         return instruction;
     }
 
-    public Utilisateur getUtilisateurRecettes() {
-        return utilisateurRecettes;
-    }
 
-    public void setUtilisateurRecettes(Utilisateur utilisateurRecettes) {
-        this.utilisateurRecettes = utilisateurRecettes;
-    }
 
     @Column(name = "nb_personnes")
     private int nb_personnes;
@@ -45,20 +39,28 @@ public class Recette {
     @Column(name = "instruction")
     private String instruction;
 
+
+
     @ManyToOne
     @JoinColumn(name = "utilisateur_id")
     private Utilisateur utilisateurRecettes;
 
 
     @ManyToMany
-    private List<Utilisateur> utilisateursfavoris;
-
-    public List<Utilisateur> getUtilisateursfavoris() {
-        return utilisateursfavoris;
+    private List<Utilisateur> utilisateurs;
+    public Utilisateur getUtilisateurRecettes() {
+        return utilisateurRecettes;
     }
 
-    public void setUtilisateursfavoris(List<Utilisateur> utilisateursfavoris) {
-        this.utilisateursfavoris = utilisateursfavoris;
+    public void setUtilisateurRecettes(Utilisateur utilisateurRecettes) {
+        this.utilisateurRecettes = utilisateurRecettes;
+    }
+    public List<Utilisateur> getUtilisateurs() {
+        return utilisateurs;
+    }
+
+    public void setUtilisateurs(List<Utilisateur> utilisateurs) {
+        this.utilisateurs = utilisateurs;
     }
 
     public Recette(int nb_personnes, String titre, int temps, String instruction) {

@@ -4,5 +4,5 @@ export interface Recette {
   nb_personnes: number,
   temps: number,
   titre: string,
-  utilisateur_id: bigint
+  utilisateur_id: number
 }

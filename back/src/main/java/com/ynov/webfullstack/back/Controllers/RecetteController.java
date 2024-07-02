@@ -1,47 +1,67 @@
 package com.ynov.webfullstack.back.Controllers;
 
 import com.ynov.webfullstack.back.Models.Recette;
+import com.ynov.webfullstack.back.Models.Utilisateur;
 import com.ynov.webfullstack.back.Service.RecetteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.UUID;
+import java.util.Set;
 
 @RestController
+@RequestMapping("/recettes")
 public class RecetteController {
 
     @Autowired
     private RecetteService recetteService;
 
-    @GetMapping("/recettes/{id}")
-    public Optional<Recette> getRecette(@PathVariable Long id){
-        return recetteService.getRecette(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<Recette> getRecette(@PathVariable Long id) {
+        Optional<Recette> recette = recetteService.getRecette(id);
+        return recette.map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/recettes/")
-    public Iterable<Recette> getRecettes() {
-        return recetteService.getRecettes();
+    @GetMapping
+    public ResponseEntity<Iterable<Recette>> getRecettes() {
+        Iterable<Recette> recettes = recetteService.getRecettes();
+        return ResponseEntity.ok(recettes);
     }
 
-    @PostMapping("/recettes")
-    public Recette saveRecette(@RequestBody Recette recette) {
-
-        return recetteService.saveRecette(recette);
+    @PostMapping
+    public ResponseEntity<Recette> saveRecette(@RequestBody Recette recette) {
+        Recette savedRecette = recetteService.saveRecette(recette);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedRecette);
     }
 
-    @GetMapping("/recettes/{keyword}")
-    public Iterable<Recette> getRecettesByKeyword( @RequestBody String keyword) {
-        return recetteService.getRecettesByKeyword(keyword);
-    }
-
-
-    @DeleteMapping("/recette/{id}")
-    public void deleteRecette(Long id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteRecette(@PathVariable Long id) {
         recetteService.deleteRecette(id);
+        return ResponseEntity.noContent().build();
+    }
+
+   /* @GetMapping("/search")
+    public ResponseEntity<Set<Recette>> searchRecettes(@RequestParam String keyword) {
+        Set<Recette> recettes = recetteService.getRecettesByKeyword(keyword);
+        return ResponseEntity.ok(recettes);
+    }*/
+
+    // Gestion des exceptions globales
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> handleException(Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body("Une erreur s'est produite : " + e.getMessage());
+    }
+
+    // Gestion des exceptions spécifiques
+    @ExceptionHandler({IllegalArgumentException.class, NoSuchElementException.class})
+    public ResponseEntity<String> handleBadRequestExceptions(Exception e) {
+        return ResponseEntity.badRequest().body("Requête invalide : " + e.getMessage());
     }
 }

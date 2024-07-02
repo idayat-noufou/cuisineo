@@ -1,0 +1,22 @@
+<div class="recette-form">
+  <h2>Créer une Nouvelle Recette</h2>
+  <form (ngSubmit)="createRecette()">
+    <div>
+      <label for="titre">Titre:</label>
+      <input type="text" id="titre" [(ngModel)]="recette.titre" name="titre" required>
+    </div>
+    <div>
+      <label for="nb_personnes">Nombre de personnes:</label>
+      <input type="number" id="nb_personnes" [(ngModel)]="recette.nb_personnes" name="nb_personnes" required>
+    </div>
+    <div>
+      <label for="temps">Temps de préparation (minutes):</label>
+      <input type="number" id="temps" [(ngModel)]="recette.temps" name="temps" required>
+    </div>
+    <div>
+      <label for="instruction">Instructions :</label>
+      <textarea id="instruction" [(ngModel)]="recette.instruction" name="instruction" required></textarea>
+    </div>
+    <button type="submit">Créer</button>
+  </form>
+</div>

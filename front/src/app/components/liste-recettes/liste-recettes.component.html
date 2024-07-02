@@ -1,17 +1,19 @@
-<table>
-  <caption>Liste des recettes disponibles</caption>
-  <thead>
-    <tr>
-      <th>Titre de la recette</th>
-      <th>Temps de préparation</th>
-      <th>Nombre de personnes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let recette of recettes">
-      <a [routerLink]="['/recettes', recette.id]"><th>recette.titre</th></a>
-      <th>recette.temps</th>
-      <th>recette.nb_personnes</th>
-    </tr>
-  </tbody>
-</table>
+<div class="liste-recettes">
+  <table>
+    <caption>Liste des recettes disponibles</caption>
+    <thead>
+      <tr>
+        <th>Titre de la recette</th>
+        <th>Temps de préparation</th>
+        <th>Nombre de personnes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let recette of recettes">
+        <a [routerLink]="['/recettes', recette.id]"><th>recette.titre</th></a>
+        <th>recette.temps</th>
+        <th>recette.nb_personnes</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

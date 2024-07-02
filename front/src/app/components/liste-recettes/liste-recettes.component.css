@@ -1,0 +1,8 @@
+.liste-recettes{
+  justify-content: space-evenly;
+  display: flex;
+}
+
+table{
+  width: 40%;
+}

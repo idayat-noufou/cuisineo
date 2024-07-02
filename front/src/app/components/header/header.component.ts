@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NgIf} from "@angular/common";
+import {CommonModule, NgIf, NgOptimizedImage} from "@angular/common";
 import {AuthService} from "../../services/auth/auth.service";
 import {RouterModule} from "@angular/router";
 
@@ -7,13 +7,16 @@ import {RouterModule} from "@angular/router";
   selector: 'app-header',
   standalone: true,
   imports: [
-    NgIf,
-    RouterModule
+    CommonModule,
+    RouterModule,
+    NgOptimizedImage,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  userId: string = "1jzk";
 
   constructor(private authService: AuthService) {
   }

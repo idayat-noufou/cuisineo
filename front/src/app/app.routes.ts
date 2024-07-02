@@ -6,6 +6,7 @@ import {authGuard} from "./services/auth/auth.guard";
 import {SignupComponent} from "./components/signup/signup.component";
 import {ListeRecettesComponent} from "./components/liste-recettes/liste-recettes.component";
 import {RecetteDetailComponent} from "./components/recette-detail/recette-detail.component";
+import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -15,6 +16,6 @@ export const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'recettes', component: ListeRecettesComponent },
   { path: 'recettes/:id', component: RecetteDetailComponent },
-  { path: 'testAuth', component: TestAuthComponent,  canActivate: [authGuard] },
-  { path: 'userProfile/:id', component: TestAuthComponent,  canActivate: [authGuard] },
+//  { path: 'testAuth', component: TestAuthComponent,  canActivate: [authGuard] },
+  { path: 'userProfile/:id', component: UserProfileComponent,  canActivate: [authGuard] },
 ];

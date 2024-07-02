@@ -14,6 +14,7 @@ import java.util.UUID;
 @Service
 public class RecetteService {
 
+    @Autowired
     private RecetteRepository recetteRepository;
 
     public Optional<Recette> getRecette(Long id) {

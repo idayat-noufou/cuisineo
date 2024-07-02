@@ -26,14 +26,22 @@ export class AuthService {
   // Sign-in
   login(user: LoginRequest) {
     return this.http
-      .post<any>(`${this.endpoint}/auth/login`, user).subscribe(res => {
-        localStorage.setItem('access_token', res.token);
-        this.router.navigate(["/home"])
-        // this.getUserProfile(res._id).subscribe((res) => {
-        //   this.currentUser = res;
-        //   this.router.navigate(['user-profile/' + res.msg._id]);
-        // });
-      });
+      .post<any>(`${this.endpoint}/auth/login`, user).subscribe({
+          next: (res) => {
+            localStorage.setItem('access_token', res.token);
+            this.router.navigate(["/home"])
+            // this.getUserProfile(res._id).subscribe((res) => {
+            //   this.currentUser = res;
+            //   this.router.navigate(['user-profile/' + res.msg._id]);
+            // });
+          },
+          error: (err) => {
+            if (err.status === 401) {
+              window.alert("L'email ou le mot de passe est incorrect");
+            }
+          }
+        }
+      )
   }
 
   getToken() {
